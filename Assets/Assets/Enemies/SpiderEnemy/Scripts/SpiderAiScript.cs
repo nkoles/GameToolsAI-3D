@@ -12,7 +12,6 @@ public class SpiderAiScript : MonoBehaviour
     private Collider triggerCol;
     public GameObject player;
     public GameObject enemy;
-    private bool playerCheck;
 
     public float cooldownMax;
 
@@ -22,6 +21,8 @@ public class SpiderAiScript : MonoBehaviour
     public float movementRatio;
     public Vector2 wanderTimerRange;
     public float minDistance;
+
+    private bool hasTarget;
 
 
     public enum State
@@ -42,6 +43,7 @@ public class SpiderAiScript : MonoBehaviour
 
         currentState = State.Wander;
         wanderTime = wanderTimerRange.x;
+        hasTarget = false;
     }
 
     void Update()
@@ -69,10 +71,14 @@ public class SpiderAiScript : MonoBehaviour
                 Wandering();
                 break;
             case State.Idle:
+                
+                MoveTowardsStraight(gameObject);
+                
                 cooldownHunt += Time.deltaTime;
                 
                 if (cooldownHunt >= cooldownMax)
                 {
+                    hasTarget = false;
                     currentState = State.Wander;
                 }
                 
@@ -103,11 +109,18 @@ public class SpiderAiScript : MonoBehaviour
         currentState = State.Idle;
     }
 
-    void OnTriggerEnter(Collider triggerCol)
+    void OnTriggerStay(Collider triggerCol)
     {
-        if(triggerCol.gameObject.tag == "Player")
+        if(triggerCol.gameObject.tag == "Player" && !hasTarget)
         {
             currentState = State.FindCharacter;
+            hasTarget = true;
+        }
+
+        if (triggerCol.gameObject.tag == "Enemy" && !hasTarget)
+        {
+            currentState = State.FindZombie;
+            hasTarget = true;
         }
     }
 
