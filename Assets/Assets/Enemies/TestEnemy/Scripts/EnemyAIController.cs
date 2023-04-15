@@ -15,6 +15,8 @@ public class EnemyAIController : MonoBehaviour
         //Getting AI Nav Component and Trigger Collider
         aiNavMesh = GetComponent<NavMeshAgent>();
         triggerCol = player.GetComponent<Collider>();
+
+        playerCheck = false;
     }
 
     void Update()
