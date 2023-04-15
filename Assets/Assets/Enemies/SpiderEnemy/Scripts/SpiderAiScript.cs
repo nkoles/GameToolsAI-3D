@@ -23,7 +23,6 @@ public class SpiderAiScript : MonoBehaviour
     public Vector2 wanderTimerRange;
     public float minDistance;
 
-    private bool touched = false;
 
     public enum State
     {
@@ -47,15 +46,11 @@ public class SpiderAiScript : MonoBehaviour
 
     void Update()
     {
-        if (touched)
-        {
-            cooldownHunt += Time.deltaTime;
-        }
+        
 
         if (cooldownHunt >= cooldownMax)
         {
             cooldownHunt = 0;
-            touched = false;
         }
         
         switch (currentState)
@@ -64,7 +59,7 @@ public class SpiderAiScript : MonoBehaviour
                 timer += Time.deltaTime;
                 MoveTowards(player);
                 float distToPlayer = Vector3.Distance(player.transform.position, transform.position);
-                if (distToPlayer < minDistance && !touched)
+                if (distToPlayer < minDistance)
                 {
                     currentState = State.TouchCharacter;
                 }
@@ -74,29 +69,28 @@ public class SpiderAiScript : MonoBehaviour
                 Wandering();
                 break;
             case State.Idle:
+                cooldownHunt += Time.deltaTime;
+                
+                if (cooldownHunt >= cooldownMax)
+                {
+                    currentState = State.Wander;
+                }
+                
                 break;
             case State.FindZombie:
                 timer += Time.deltaTime;
                 MoveTowards(enemy);
                 float dist = Vector3.Distance(enemy.transform.position, transform.position);
-                if (dist < minDistance && !touched)
+                if (dist < minDistance)
                 {
                     currentState = State.TouchZombie;
                 }
                 break;
             case State.TouchCharacter:
                 MoveTowardsStraight(player);
-                if (touched)
-                {
-                    currentState = State.FindCharacter;
-                }
                 break;
             case State.TouchZombie:
                 MoveTowardsStraight(enemy);
-                if (touched)
-                {
-                    currentState = State.FindZombie;
-                }
                 break;
             
         }
@@ -106,7 +100,7 @@ public class SpiderAiScript : MonoBehaviour
     {
         Debug.Log("work pls uwu");
 
-        touched = true;
+        currentState = State.Idle;
     }
 
     void OnTriggerEnter(Collider triggerCol)
