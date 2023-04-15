@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b65f3f4-aa30-46aa-a0b0-100ef137499d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/URP-HighFidelity-Renderer.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GameToolsAI-3D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GameToolsAI-3D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Assets/Enemies/SpiderEnemy/Scripts/SpiderAiScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Assets/Enemies/SpiderEnemy/Scripts/SpiderAiScript.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681566461160</updated>
-      <workItem from="1681566517213" duration="4158000" />
+      <workItem from="1681566517213" duration="8090000" />
     </task>
     <servers />
   </component>
