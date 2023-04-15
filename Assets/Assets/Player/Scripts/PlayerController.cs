@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     //Health Variables
     public float health;
     private Collider playerHB;
-    private bool hit;
+    public bool hit;
+    public int hitAm;
 
     void Start()
     {
@@ -27,10 +28,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(xDir, 0, zDir);
 
         //Damage Calculation
-        if(hit == true)
-        {
-            health -= 0.33f * Time.deltaTime;
-        }
+        health = 1 - 0.33f*hitAm;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +36,7 @@ public class PlayerController : MonoBehaviour
         if(other.tag == "Enemy" && other.isTrigger == false)
         {
             hit = true;
+            hitAm ++;
         }
     }
 
