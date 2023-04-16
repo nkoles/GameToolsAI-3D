@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Companion
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
+  - name: Enemy
     uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 8
     locked: 0
