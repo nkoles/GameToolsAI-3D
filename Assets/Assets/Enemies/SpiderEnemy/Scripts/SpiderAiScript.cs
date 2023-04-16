@@ -21,8 +21,12 @@ public class SpiderAiScript : MonoBehaviour
     public float movementRatio;
     public Vector2 wanderTimerRange;
     public float minDistance;
+    public float rotationSpeed;
+    public float detectionRange;
 
     private bool hasTarget;
+
+    private Quaternion rot;
 
 
     public enum State
@@ -53,6 +57,17 @@ public class SpiderAiScript : MonoBehaviour
         if (cooldownHunt >= cooldownMax)
         {
             cooldownHunt = 0;
+        }
+
+        if (Vector3.Distance(player.transform.position, transform.position) < detectionRange && !hasTarget)
+        {
+            currentState = State.FindCharacter;
+            hasTarget = true;
+        }
+        else if (Vector3.Distance(enemy.transform.position, transform.position) < detectionRange && !hasTarget)
+        {
+            currentState = State.FindZombie;
+            hasTarget = true;
         }
         
         switch (currentState)
@@ -100,28 +115,35 @@ public class SpiderAiScript : MonoBehaviour
                 break;
             
         }
+        
+        Vector3 dir = aiNavMesh.destination - transform.position;
+        dir.y = 0;//This allows the object to only rotate on its y axis
+        rot = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rot, rotationSpeed * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("work pls uwu");
-
-        currentState = State.Idle;
+        
     }
 
     void OnTriggerStay(Collider triggerCol)
     {
-        if(triggerCol.gameObject.tag == "Player" && !hasTarget)
+        /*
+         if(triggerCol.gameObject.tag == "Player" && !hasTarget)
         {
-            currentState = State.FindCharacter;
-            hasTarget = true;
+            
         }
 
         if (triggerCol.gameObject.tag == "Enemy" && !hasTarget)
         {
             currentState = State.FindZombie;
             hasTarget = true;
-        }
+        }*/
+        
+        Debug.Log("work pls uwu");
+
+        currentState = State.Idle;
     }
 
     void Wandering()
