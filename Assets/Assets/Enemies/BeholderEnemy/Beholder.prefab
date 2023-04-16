@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 4927555292419777791}
   m_Layer: 0
   m_Name: Beholder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b53e7a48e5e68694c97567521ba83031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8553158726297012165, guid: 03efd7f3f9a71884fbadf805a4dcf57b, type: 3}
   rotSpeed: 50
   speedMinMax: {x: 5, y: 40}
   speedUpRange: 15

@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 2137444166}
   m_Layer: 0
   m_Name: Spider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1101,8 +1101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfe28b796bc6bd45921650b74423180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemy: {fileID: 0}
+  player: {fileID: 8553158726297012165, guid: 03efd7f3f9a71884fbadf805a4dcf57b, type: 3}
+  enemy: {fileID: 651679034709861885, guid: bc865c3e17290ad40a845fb48afca2a8, type: 3}
   cooldownMax: 1
   movementRange: 2
   movementRatio: 0.1

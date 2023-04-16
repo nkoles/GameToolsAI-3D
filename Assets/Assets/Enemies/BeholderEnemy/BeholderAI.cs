@@ -30,6 +30,8 @@ public class BeholderAI : MonoBehaviour
         //Getting AI Nav Component and Trigger Collider
         aiNavMesh = GetComponent<NavMeshAgent>();
         triggerCol = player.GetComponent<Collider>();
+        
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()

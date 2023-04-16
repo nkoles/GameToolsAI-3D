@@ -48,11 +48,13 @@ public class SpiderAiScript : MonoBehaviour
         currentState = State.Wander;
         wanderTime = wanderTimerRange.x;
         hasTarget = false;
+        
+        player = GameObject.FindWithTag("Player");
     }
 
     void Update()
     {
-        
+        enemy = FindClosestEnemy();
 
         if (cooldownHunt >= cooldownMax)
         {
@@ -64,10 +66,13 @@ public class SpiderAiScript : MonoBehaviour
             currentState = State.FindCharacter;
             hasTarget = true;
         }
-        else if (Vector3.Distance(enemy.transform.position, transform.position) < detectionRange && !hasTarget)
+        else if (enemy)
         {
-            currentState = State.FindZombie;
-            hasTarget = true;
+            if (Vector3.Distance(enemy.transform.position, transform.position) < detectionRange && !hasTarget)
+            {
+                currentState = State.FindZombie;
+                hasTarget = true;
+            }
         }
         
         switch (currentState)
@@ -141,14 +146,45 @@ public class SpiderAiScript : MonoBehaviour
             hasTarget = true;
         }*/
 
-        currentState = State.Idle;
+        
+    }
+    
+    public GameObject FindClosestEnemy()
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance && go.gameObject.GetComponent<EnemyAIController>())
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        
+        
+
+        return closest;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject != player)
+        if (other.gameObject.tag != "Player" && !other.isTrigger)
         {
             Destroy(other.gameObject);
+
+            currentState = State.Wander;
+
+            hasTarget = false;
+        }
+        else if (!other.isTrigger)
+        {
+            currentState = State.Idle;
         }
         
         Debug.Log("ah.");
