@@ -6,21 +6,17 @@ using UnityEngine.AI;
 public class CompanionController : MonoBehaviour
 {
     private NavMeshAgent companionAgent;
-    public RotationScript refPoint;
-    public GameObject refPointEdge;
+    public GameObject refPoint;
+    private GameObject currentTarget;
 
-    private int numEnemies;
     private bool enemyCheck;
-    private float theta;
 
-    public float rad = 2;
+    private List<GameObject> numEnemies = new List<GameObject>();
 
     private enum State
     {
         AttackEnemy,
         Idle,
-        ToIdle,
-        Cooldown
     }
 
     private State currentState;
@@ -38,8 +34,8 @@ public class CompanionController : MonoBehaviour
         switch (currentState)
         {
             case State.Idle:
-                companionAgent.enabled = false;
-                refPoint.enabled = true;
+                
+                SetNavTarget(refPoint);
 
                 if(enemyCheck == true)
                 {
@@ -48,31 +44,67 @@ public class CompanionController : MonoBehaviour
 
                 break;
 
-            case State.ToIdle:
-
-                break;
-
             case State.AttackEnemy:
-                refPoint.enabled = false;
+
+                GameObject closestEnemy = closestEnemyDist();
+
+                SetNavTarget(closestEnemy);
+
+                if(enemyCheck == false)
+                {
+                    currentState = State.Idle;
+                }
 
                 break;
 
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Enemy" && other.isTrigger == false)
         {
+            numEnemies.Add(other.gameObject);
 
             enemyCheck = true;
-            SetNavTarget(other.transform.position);
         }
-
     }
 
-    private void SetNavTarget(Vector3 targetPos)
+    void OnTriggerExit(Collider other)
     {
-        companionAgent.SetDestination(targetPos);
+        if(other.tag == "Enemy" && other.isTrigger == false)
+        {
+            numEnemies.Remove(other.gameObject);
+
+            if(numEnemies.Count == 0)
+            {
+                enemyCheck = false;
+            }
+        }
+    }
+
+    private GameObject closestEnemyDist()
+    {
+        float closestDist = float.MaxValue;
+        int closestInd = 0;
+        
+        for (int i = 0; i < numEnemies.Count; i++)
+        {
+            float dist = Vector3.Distance(transform.position, numEnemies[i].transform.position);
+
+            if(dist<closestDist)
+            {
+                dist = closestDist;
+                closestInd = i;
+            }
+        }
+
+        return numEnemies[closestInd];
+    }
+
+    void SetNavTarget(GameObject target)
+    {
+        companionAgent.SetDestination(target.transform.position);
+        currentTarget = target;
     }
 }
