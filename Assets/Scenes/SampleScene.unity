@@ -1443,7 +1443,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 15
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &1127112161
 NavMeshAgent:
@@ -1466,7 +1466,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!65 &1127112162
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1493,6 +1493,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refPoint: {fileID: 2091503839}
+  flameParticles: {fileID: 1189548591206934064, guid: 510050dab91080849a14a8a6f0c1353b,
+    type: 3}
 --- !u!1 &1456737408
 GameObject:
   m_ObjectHideFlags: 0

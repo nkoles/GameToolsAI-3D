@@ -10,7 +10,8 @@ public class EnemyAIController : MonoBehaviour
 
     //Player Reference Variables
     public GameObject player;
-    private bool playerCheck;
+    public GameObject companion;
+    public bool playerCheck;
     private PlayerController playerContr;
 
     //Idle timer floats
@@ -21,7 +22,7 @@ public class EnemyAIController : MonoBehaviour
     {
         AttackPlayer,
         Idle,
-        RunAway
+        RunAway,
     }
 
     private State currentState;
@@ -67,9 +68,6 @@ public class EnemyAIController : MonoBehaviour
                     currentState = State.AttackPlayer;
                 }
 
-                break;
-
-            case State.RunAway:
                 break;
         }
     }

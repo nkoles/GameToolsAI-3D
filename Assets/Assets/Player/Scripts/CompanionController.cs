@@ -8,8 +8,10 @@ public class CompanionController : MonoBehaviour
     private NavMeshAgent companionAgent;
     public GameObject refPoint;
     private GameObject currentTarget;
+    public GameObject flameParticles;
 
     private bool enemyCheck;
+    private bool enemyDestroyed;
 
     private List<GameObject> numEnemies = new List<GameObject>();
 
@@ -34,7 +36,7 @@ public class CompanionController : MonoBehaviour
         switch (currentState)
         {
             case State.Idle:
-                
+
                 SetNavTarget(refPoint);
 
                 if(enemyCheck == true)
@@ -47,8 +49,21 @@ public class CompanionController : MonoBehaviour
             case State.AttackEnemy:
 
                 GameObject closestEnemy = closestEnemyDist();
+                float dist = Vector3.Distance(transform.position, closestEnemy.transform.position);
 
                 SetNavTarget(closestEnemy);
+
+                if(dist <= 1.5)
+                {
+                    Instantiate(flameParticles, transform);
+                    Destroy(closestEnemy);
+                    numEnemies.Clear();
+                }
+
+                if(numEnemies.Count == 0)
+                {
+                    enemyCheck = false;
+                }
 
                 if(enemyCheck == false)
                 {
