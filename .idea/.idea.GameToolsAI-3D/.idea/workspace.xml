@@ -11,6 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Assets/Enemies/BeholderEnemy/BeholderAI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Assets/Enemies/SpiderEnemy/Scripts/SpiderAiScript.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -71,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681566461160</updated>
       <workItem from="1681566517213" duration="12165000" />
-      <workItem from="1681659149647" duration="1773000" />
+      <workItem from="1681659149647" duration="8581000" />
     </task>
     <servers />
   </component>

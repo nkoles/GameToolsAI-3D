@@ -140,10 +140,18 @@ public class SpiderAiScript : MonoBehaviour
             currentState = State.FindZombie;
             hasTarget = true;
         }*/
-        
-        Debug.Log("work pls uwu");
 
         currentState = State.Idle;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject != player)
+        {
+            Destroy(other.gameObject);
+        }
+        
+        Debug.Log("ah.");
     }
 
     void Wandering()
