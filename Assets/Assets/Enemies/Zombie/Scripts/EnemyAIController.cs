@@ -9,8 +9,7 @@ public class EnemyAIController : MonoBehaviour
     private NavMeshAgent aiNavMesh;
 
     //Player Reference Variables
-    public GameObject player;
-    public GameObject companion;
+    private GameObject player;
     public bool playerCheck;
     private PlayerController playerContr;
 
@@ -32,6 +31,7 @@ public class EnemyAIController : MonoBehaviour
         //Getting AI Nav Component and Trigger Collider
         aiNavMesh = GetComponent<NavMeshAgent>();
         playerContr = FindObjectOfType<PlayerController>();
+        player = GameObject.FindWithTag("Player");
 
         currentState = State.Idle;
     }
