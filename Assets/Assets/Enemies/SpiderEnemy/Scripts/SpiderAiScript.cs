@@ -174,7 +174,7 @@ public class SpiderAiScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player" && !other.isTrigger)
+        if (other.gameObject.tag == "Enemy" && !other.isTrigger)
         {
             Destroy(other.gameObject);
 

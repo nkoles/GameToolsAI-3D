@@ -18,7 +18,7 @@ public class CoinScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(coinAm == 5 || playerC.hitAm == 3 || playerC.health ==0)
+        if(coinAm == 5 || playerC.hitAm == 3 || playerC.health == 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

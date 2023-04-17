@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 108
+  controlID: 34808
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 109
+  controlID: 34809
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 99
+  controlID: 34749
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -225,10 +225,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9a46ffff
-      m_LastClickedID: -47462
-      m_ExpandedIDs: 7cdbfbffec64fdff962bfeffa4b6feff1c39ffff9a46ffff1afbffff3c690000ce690000d8690000226a0000
+      scrollPos: {x: 0, y: 159}
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: f6cef8ff7cdbfbffec64fdff962bfeffa4b6feff1c39ffff9a46fffff04effff1afbffff3c690000ce690000d8690000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -244,7 +244,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 5}
+        m_ClientGUIView: {fileID: 7}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 25}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.761606, y: 0.32551765, z: -6.3327923}
+    m_Target: {x: -10.222568, y: -6.0792694, z: 33.349583}
     speed: 2
-    m_Value: {x: -9.761606, y: 0.32551765, z: -6.3327923}
+    m_Value: {x: -10.222568, y: -6.0792694, z: 33.349583}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -553,13 +553,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.32225347, y: 0.28086826, z: -0.10074131, w: 0.8984064}
+    m_Target: {x: 0.30201262, y: -0.024304375, z: 0.0077050906, w: 0.95298856}
     speed: 2
-    m_Value: {x: 0.3222507, y: 0.28086585, z: -0.10074045, w: 0.8983987}
+    m_Value: {x: 0.30200523, y: -0.02430378, z: 0.0077049024, w: 0.95296526}
   m_Size:
-    m_Target: 226.26402
+    m_Target: 22.315441
     speed: 2
-    m_Value: 226.26402
+    m_Value: 22.315441
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -608,7 +608,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 110
+  controlID: 34810
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -678,21 +678,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Assets/Environment
+    - Assets/Assets/Enemies/SpiderEnemy
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Assets/Environment
+  - Assets/Assets/Enemies/SpiderEnemy
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Unity\Unity Projects\GameToolsAI-3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 266c0000
-    m_LastClickedID: 27686
+    m_SelectedIDs: 186c0000
+    m_LastClickedID: 27672
     m_ExpandedIDs: 000000000e6c0000106c0000126c0000146c0000166c0000186c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -746,8 +746,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9a46ffff
-    m_LastClickedInstanceID: -47462
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000966a0000246f00001e6f0000
     m_RenameOverlay:
